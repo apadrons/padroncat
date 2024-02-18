@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Inventario {% endblock %}
+
+{% block content %}
+  <div class=" mx-2 mt-10 mb-5 flex flex-col align-center justify-center bg-white rounded-3xl">
+    
+          <div class="mx-auto w-full sm:p-8">
+            <div class="flex flex-col justify-center align-center p-4  sm:flex-row sm:justify-between">
+            <div class="w-3/4 my-auto mx-auto flex flex-col justify-between items-center">
+              <div class="mb-2 mx-auto w-3/4 h-3/4">
+              <img src= "{{ machine.mainImage.url }}" id=mainImage class="max-h-68 h-3/4 w-full object-center hover:opacity-75 overflow-hidden rounded-2xl">
+              </div>
+              <div class="flex flex-row whitespace-nowrap sm:p-4 justify-between w-3/4 mx-auto">
+              {% for image in images %}
+      
+                <img src= "{{ image.url }}" id='image-{{forloop.counter}}' class="  sm:w-40 w-16 sm:h-24 h-12 hover:opacity-75 overflow-hidden rounded-xl">
+
+                {% endfor %}
+              </div>
+            </div>
+            
+
+            <div class="sm:w-1/2 w-3/4 px-2 sm:px-8 mx-auto flex flex-col justify-evenly">
+              <div>
+              <div class="max-w-5xl sm:mx-auto  sm:mx-2 border-b-2 border-black w-full">
+                <h1 class="font-extrabold sm:text-6xl text-2xl  text-black tracking-tight text-center mb-2 sm:mb-6">{{machine.name.upper }}</h1>
+              </div>
+              <br>
+              <div class="">
+                <p class="mt-1 text-xs sm:text-lg font-bold text-black">Description:</p>
+                <p class="mt-1 text-xs sm:text-lg font-bold text-black">{{machine.description}}</p>
+                <p class="mt-1 text-xs sm:text-lg font-bold text-black flex justify-between whitespace-nowrap">Precio <span>  $ {{machine.price}} </span></p>
+                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Año <span>{{machine.year}}</span> </p>
+                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Categoria <span>{{machine.category}}</span> </p>
+              </div>
+            </div>
+              <div class="mt-6"><a a href="https://wa.me/584144312366"> <img src='https://1000logos.net/wp-content/uploads/2018/03/whatsapp-logo.jpg' class="rounded-3xl max-h-16 mx-auto"></a></div>
+            </div>
+              
+            </div>
+            <!-- More products... -->
+          </div>
+
+    </div>
+    {% load static %}
+    <script src="{% static 'detail.js' %}" ></script>
+{% endblock %}

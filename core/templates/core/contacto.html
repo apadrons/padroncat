@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Contacto {% endblock %}
+
+{% block content %}
+
+<div class="max-w-5xl  mx-auto  my-10 bg-white rounded-3xl p-6">
+    <h1 class=" text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl pb-3 text-black tracking-tight text-center">CONTACTO<br> <span class='text-2xl'>¡Contáctenos!</span></h1>
+    <p class=" text-lg text-black max-w-lg text-justify mx-auto dark:text-black">
+
+      <br>
+      Gracias por considerar PadronCat™ como su proveedor de confianza en maquinaria pesada. Estamos aquí para ayudarle en todo lo que necesite. Por favor, utilice la siguiente información de contacto para comunicarse con nosotros:
+      <br>
+      <br>
+      Información de Contacto:
+      <br>
+      <br>
+      Dirección: [Dirección de la Empresa, Valencia, Venezuela]
+      <br>
+      Teléfono: <span class="underline hover:text-emerald-600 " ><a href="https://wa.me/584144312366">Haz click aqui para hablar al whatsapp</a></span>
+      <br>
+      Correo Electrónico: [Correo Electrónico de Contacto]
+      <br>
+      <br>
+      Horario de Atención:<br>
+      <br>
+      Lunes a Viernes: 8:00 am - 6:00 pm<br>
+      Sábado: 9:00 am - 2:00 pm<br>
+      <br>
+
+    </p>
+    <div id="map" style="height: 400px;" class="z-40  max-w-xl mx-auto mb-5 border-black"></div>
+  </div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="{% static 'contacto.js' %}"></script>
+
+{% endblock %}
