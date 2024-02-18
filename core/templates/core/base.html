@@ -25,7 +25,7 @@
                 'machine-pattern': "url('./images/equip.jpg')",
               },
               screens: {
-                'sm': '426px',
+                'sm': '600px',
                 // => @media (min-width: 640px) { ... }
 
                 'md': '768px',
@@ -112,7 +112,7 @@
   <header class= "z-40 bg-yellow top-0 w-full flex flex-row align-middle justify-between items-center p-4 ">
       <a href='/'><h1 class='font-bold pl-4 sm:text-5xl  text-xl russo-one-regular tracking-wider' >PADRONCAT</h1></a>
       <nav>
-        <div class="w-32 h-40 bg-white absolute top-0 right-0 invisible z-100" id="menuContainer">
+        <div class="w-32 h-40 bg-white absolute top-40 right-0 invisible z-100" id="menuContainer">
           <a href="{% url 'equips:inventory' %}"><div class="bg-white h-1/3 border-b-4 flex flex-col justify-center text-center">INVENTARIO</div></a>
           <a href="/contacto/"><div class="bg-white h-1/3 border-b-4 flex flex-col justify-center text-center">CONTACTO</div></a>
           <a href="/nosotros/"><div class="bg-white h-1/3  flex flex-col justify-center text-center">NOSOTROS</div></a>
