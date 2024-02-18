@@ -19,12 +19,12 @@ class Category(models.Model):
 class Machine(models.Model):
     category= models.ForeignKey(Category,related_name = 'Machine',on_delete = models.CASCADE)
     name = models.CharField(max_length=255)
-    price = models.FloatField()
+    price = models.IntegerField()
     year = models.IntegerField()
-    created_at =models.TimeField(auto_now_add = True)
+    created_at =models.DateField(auto_now_add = True )
     created_by = models.ForeignKey(User,related_name = 'Machine',on_delete = models.CASCADE)
-    mainImage = models.ImageField(upload_to='machine_images/', default='boo.png' , null=True,blank=True)
-    description = models.CharField(max_length=255,blank=True)
+    mainImage = models.ImageField(upload_to='machine_images/', default='boo.png' , null=True)
+    description = models.TextField(max_length=255,blank=True)
 
 
     def __str__(self):
@@ -32,9 +32,15 @@ class Machine(models.Model):
     
     
 class MachineImages(models.Model):
-    image = models.ImageField(upload_to='machine_images/',null=True,blank=True)
+    image = models.ImageField(upload_to='machine_images/',null=True)
     machine = models.ForeignKey(Machine,on_delete = models.CASCADE)
 
+    def save(self,*args,**kwargs):
+        if self.id == None:
+            if MachineImages.objects.filter(machine = self.machine).count() >= 3:
+                print('issue')
+        
+        return super(MachineImages,self).save(*args,**kwargs)
 
     class Meta:
         verbose_name_plural = 'MachineImages'

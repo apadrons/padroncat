@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function () {
+
 var mainImage = document.getElementById('mainImage');
 var secondaryImages = [];
 
@@ -21,4 +23,4 @@ function imageSwap (secondaryImage,mainImage){
     secondaryImage.src = tempMain;
 
 
-}
+}})

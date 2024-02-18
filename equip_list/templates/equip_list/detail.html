@@ -8,13 +8,13 @@
           <div class="mx-auto w-full sm:p-8">
             <div class="flex flex-col justify-center align-center p-4  sm:flex-row sm:justify-between">
             <div class="w-3/4 my-auto mx-auto flex flex-col justify-between items-center">
-              <div class="mb-2 mx-auto w-3/4 h-3/4">
-              <img src= "{{ machine.mainImage.url }}" id=mainImage class="max-h-68 h-3/4 w-full object-center hover:opacity-75 overflow-hidden rounded-2xl">
+              <div class="pb-2 mx-auto my-auto w-full h-72 overflow-hidden flex flex-col justify-center ">
+              <img src= "{{ machine.mainImage.url }}" id=mainImage class=" h-3/4 object-center hover:opacity-75 overflow-hidden rounded-2xl">
               </div>
-              <div class="flex flex-row whitespace-nowrap sm:p-4 justify-between w-3/4 mx-auto">
+              <div class="h-1/4 grid grid-cols-3 gap-x-2 whitespace-nowrap sm:p-4 justify-center align-center w-full mx-auto">
               {% for image in images %}
       
-                <img src= "{{ image.url }}" id='image-{{forloop.counter}}' class="  sm:w-40 w-16 sm:h-24 h-12 hover:opacity-75 overflow-hidden rounded-xl">
+                <img src= "{{ image.url }}" id='image-{{forloop.counter}}' class="  sm:w-40 w-16 sm:h-24 h-12 hover:opacity-75 overflow-hidden rounded-xl mx-auto">
 
                 {% endfor %}
               </div>
@@ -33,9 +33,13 @@
                 <p class="mt-1 text-xs sm:text-lg font-bold text-black flex justify-between whitespace-nowrap">Precio <span>  $ {{machine.price}} </span></p>
                 <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Año <span>{{machine.year}}</span> </p>
                 <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Categoria <span>{{machine.category}}</span> </p>
+                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Fecha de publicacion: <span>{{machine.created_at}}</span> </p>
+                
               </div>
             </div>
-              <div class="mt-6"><a a href="https://wa.me/584144312366"> <img src='https://1000logos.net/wp-content/uploads/2018/03/whatsapp-logo.jpg' class="rounded-3xl max-h-16 mx-auto"></a></div>
+              <div class="mt-6">
+                <p class="my-2 text-xs sm:text-md font-bold flex justify-center text-black whitespace-nowrap">Por mas detalles contactanos: </p>
+                <a a href="https://wa.me/584144312366"> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/WhatsApp_logo.svg/1024px-WhatsApp_logo.svg.png' class="rounded-xl max-h-8 sm:max-h-12 mx-auto ring-2 ring-green-600"></a></div>
             </div>
               
             </div>
