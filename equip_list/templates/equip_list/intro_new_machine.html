@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Inventario {% endblock %}
+
+{% block content %}
+
+
+
+<div class="my-10 px-24 py-16 max-w-3xl mx-auto flex-col justify-center bg-white rounded-3xl text-center">
+    <h1 class=" text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl pb-3 text-black tracking-tight text-center">NUEVA MAQUINA<br> <span class='text-2xl'> PROCEDIMIENTOS:</span></h1>
+
+    <ul>
+        <li class="list-disc p-6 text-lg text-black text-justify max-w-3xl mx-auto dark:text-black">Las maquinas que han sido anadidas por el usuario seran enviadas al propietario de la pagina que validara si la maquina cumple las normas.</li>
+
+        <li class="list-disc p-6 text-lg text-black text-justify max-w-3xl mx-auto dark:text-black">Es necesario mantener el formato y agregar la informacion correcta para mantener el sitio funcionativo y relevante. </li>
+
+        <li class="list-disc p-6 text-lg text-black text-justify max-w-3xl mx-auto dark:text-black">Dudas y preguntas para el propietario de la pagina pueden ser encontradas en este <a a href="https://wa.me/584144312366" class="underline hover:text-blue"> numero </a></li>
+    </ul>
+
+        <a href=' {% url "equips:new_machine" %}' class="bg-yellow rounded-3xl p-3 px-6 ">Añade una maquina</a>
+
+        
+    
+</div>
+</div>
+
+{% endblock %}

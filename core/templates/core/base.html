@@ -115,6 +115,7 @@
       <nav>
         <div class="w-32 h-40 bg-white absolute top-0 right-0 invisible z-100" id="menuContainer">
           <a href="{% url 'equips:inventory' %}"><div class="bg-white h-1/3 border-b-4 flex flex-col justify-center text-center">INVENTARIO</div></a>
+          <a href="{% url 'equips:new_machine_intro' %}"><div class="bg-white h-1/3 border-b-4 flex flex-col justify-center text-center">NUEVA MAQUINA</div></a>
           <a href="/contacto/"><div class="bg-white h-1/3 border-b-4 flex flex-col justify-center text-center">CONTACTO</div></a>
           <a href="/nosotros/"><div class="bg-white h-1/3  flex flex-col justify-center text-center">NOSOTROS</div></a>
       </div>
@@ -140,12 +141,13 @@
             </button>
           <ul class="hidden sm:flex">
               <a href="{% url 'equips:inventory' %}"><li class="sm:px-2 text-xl hover:text-red hover:font-bold hover:cursor-pointer hover:underline">Inventario</li></a>
+              <a href="{% url 'equips:new_machine_intro' %}"><li class="sm:px-2 text-xl hover:text-red hover:font-bold hover:cursor-pointer hover:underline">Nueva Maquina</li></a>
               <a href="/contacto/"><li class="sm:px-2  text-xl hover:cursor-pointer hover:underline">Contacto</li></a>
               <a href="/nosotros/"><li class="sm:px-2  text-xl hover:cursor-pointer hover:underline">Nosotros</li></a>
           </ul>
       </nav>
   </header>
-  <main class="flex-1 mx-auto w-11/12 ">
+  <main class="flex-1 mx-auto w-11/12">
     
         {% block content %}
         {% endblock %}
