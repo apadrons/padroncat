@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Registrate {% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+  <div class="my-10 py-10 max-w-3xl mx-auto flex-col justify-center bg-white rounded-3xl text-center">
+    <div class="max-w-3xl lg:pt-10 mx-auto">
+        <h1 class=" text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl mb-8 text-black tracking-tight text-center">Registrate</h1>
+      </div>
+    <div class="flex-col ">
+    <form action="{% url 'login_register:register' %}" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+          {% for field in form %}
+
+            <div>{{field.label_tag}}</div>
+            <div class="mb-4">{{field}}</div>
+          {% endfor %}
+
+                {{form.non_field_errors}}
+            </div>
+          <div><label for="password" >Password</label></div>
+          <div><input type="password" id='password' name='password' placeholder="Password" class="w-1/2"></div>
+        <button type="submit" value="Submit" class="bg-yellow rounded-3xl p-3 px-6 mt-6">Añade Usuario</button>
+    </form>
+
+    </div>
+  </div>
+{% endblock %}

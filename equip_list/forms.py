@@ -1,25 +1,36 @@
 from django import forms
-from .models import Category,Machine
+from .models import Machine,MachineImages
 
 
 class MachineForm (forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["name"].widget.attrs.update({'placeholder': 'Ej. 210H CAT','style': 'width:50%'})
+        self.fields["name"].label = 'Nombre'
+        self.fields["price"].widget.attrs.update({'placeholder': 'Ej. $10000','style': 'width:50%'})
+        self.fields["price"].label = 'Precio'
+        self.fields["year"].widget.attrs.update({'placeholder': 'Ej. 2002','style': 'width:50%'})
+        self.fields["year"].label = 'Año'
+        self.fields["mainImage"].widget.attrs.update({'style': 'width:50%, margin-left:auto'})
+        self.fields["mainImage"].label = 'Imagen Principal'
+        self.fields["category"].widget.attrs.update({'style': 'width:50%'})
+        self.fields["category"].label = 'Categoria'
+        self.fields['category'].initial = 'Select an option'
+        self.fields["description"].widget.attrs.update({'style': 'width:50%'})
+        self.fields["description"].label = 'Descripcion'
+
+
+
     class Meta:
         model = Machine
-        exclude = ['created_by','created_at','approved']
+        fields = ('name','price','year','category','mainImage','description',)
 
-    # name = forms.CharField(max_length=255,label='Nombre de Maquina:', widget=forms.TextInput(attrs={'placeholder': 'Ej. 210H CAT',                                                                                                    'style': 'width:50%'}))
-    # price = forms.IntegerField(label='Precio: ',
-    #                            widget=forms.NumberInput(attrs={'placeholder': 'Ej. $10000',                                                                              'style': 'width:50%'}))
-    # year = forms.IntegerField(label='Año: ',
-    #                            widget=forms.NumberInput(attrs={'placeholder': 'Ej. 2002',                                                                              'style': 'width:50%'}))
-    # category = forms.ModelChoiceField(queryset=Category.objects.all(),to_field_name = 'name', required=True, widget=forms.Select(attrs={'style': 'width:50%'}))
-    # mainImage = forms.ImageField(label='Imagen Principal: ')
-    # description = forms.CharField(label = 'Descripcion',
-    #                            widget=forms.TextInput(attrs={'style': 'width:50%'}))
+class MachineImageForm(forms.ModelForm):
 
-    # class Meta:
-    #     model = Machine
+    class Meta:
+        model = MachineImages
+        fields = ('image',)
+        exclude =['machine',]
+        
 
-
-class MachineImages (forms.Form):
-    image = forms.ImageField(label='Secondary Machine Image: ')

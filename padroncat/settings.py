@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_url = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
 
     'core',
     'equip_list',
+    'login_register',
 ]
 
 MIDDLEWARE = [

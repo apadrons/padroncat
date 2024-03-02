@@ -11,11 +11,11 @@ class MachineImagesAdmin(admin.StackedInline):
 
 
 class MachineAdmin(admin.ModelAdmin):
-    list_display = ['name', 'year', 'category', 'created_at']
+    list_display = ['name', 'year', 'category', 'created_at','created_by']
     fieldsets = [
         (
             None, 
-                  {"fields":["name",("price","year"),"description"]},
+                  {"fields":["name",("price","year"),"description",'created_by']},
                   ),
                   ("Images",
                       {

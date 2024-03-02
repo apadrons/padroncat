@@ -19,7 +19,6 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from core.views import index,about_view,contact_view
-from equip_list.views import new_machine_view,new_machine_intro
 
 app_name = 'main'
 
@@ -28,6 +27,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('nosotros/',about_view, name='nosotros'),
     path('contacto/',contact_view,name='contacto'),
+    path("account/",include('login_register.urls', "login_register")),
     path("inventory/",include('equip_list.urls', "equips")),
 
 

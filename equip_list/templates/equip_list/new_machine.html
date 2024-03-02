@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static %}
-{% block title %} Inventario {% endblock %}
+{% block title %} Nueva Maquina {% endblock %}
 
 
 
@@ -9,15 +9,28 @@
 
 
 
-  <div class="my-10 py-10 max-w-3xl mx-auto flex-col justify-center bg-white rounded-3xl text-center">
-    <div class="max-w-3xl lg:pt-10 mx-auto">
+  <div class="my-10  max-w-3xl mx-auto flex-col justify-center bg-white rounded-3xl text-center">
+    <div class="max-w-3xl lg:pt-8 mx-auto">
         <h1 class=" text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl mb-8 text-black tracking-tight text-center">NUEVO EQUIPO</h1>
       </div>
     <div class="flex-col ">
     <form action="{% url 'equips:new_machine' %}" method="post" enctype="multipart/form-data" >
         {% csrf_token %}
-{{form}}
-        <button type="submit" value="Submit" class="bg-yellow rounded-3xl p-3 px-6">Añade Maquina</button>
+        {% if form.errors %}
+            <!-- bootstrap alert -->
+            <div class="alert alert-danger bg-red-200">
+              {{ form.errors }}
+            </div>
+        {% endif %}
+          {% for field in form %}
+            <div>{{field.label_tag}}</div>
+            <div class="mb-4">{{field}}</div>
+          
+          {% endfor %}
+          
+          {{imageForm}}
+
+        <button type="submit" value="Submit" class="bg-yellow rounded-3xl p-3 px-6 my-6">Añade Maquina</button>
     </form>
 
     </div>

@@ -1,39 +1,53 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block title %} Inventario {% endblock %}
+<style>
+  mainImage {
+    width: 500px; 
+    height: 400px
+}
 
+/* Media query for smaller screens */
+@media screen and (max-width: 400px) {
+    mainImage {
+      width: 500px; 
+      height: 200px
+    }
+}
+</style>
 {% block content %}
-  <div class=" mx-2 mt-10 mb-5 flex flex-col align-center justify-center bg-white rounded-3xl">
+  <div class=" sm:mx-auto mt-10 mb-5 sm:w-3/4 flex flex-col align-center justify-center bg-white rounded-3xl">
     
-          <div class="mx-auto w-full sm:p-8">
-            <div class="flex flex-col justify-center align-center p-4  sm:flex-row sm:justify-between">
-            <div class="w-3/4 my-auto mx-auto flex flex-col justify-between items-center">
-              <div class="pb-2 mx-auto my-auto h-72 sm:h-120 overflow-hidden flex flex-col justify-center ">
-              <img src= "{{ machine.mainImage.url }}" id=mainImage class="w-3/4 mx-auto  object-center hover:opacity-75 overflow-hidden rounded-2xl">
+          <div class="mx-auto sm:p-4">
+            <div class="flex flex-col justify-center align-center px-8 py-6 sm:flex-row sm:justify-between">
+            <div class="w-full my-auto mx-auto flex flex-col justify-between items-center">
+              <div class="py-4 mx-auto my-auto flex overflow-hidden justify-center rounded-2xl w-full h-96" >
+                <img src= "{{ machine.mainImage.url }}" id=mainImage class="w-full h-auto object-cover mx-auto object-center hover:opacity-75 rounded-2xl mainImage">
               </div>
-              <div class="h-1/4 w-3/4 grid grid-cols-3 gap-x-1 whitespace-nowrap sm:p-4 justify-center align-center w-full mx-auto">
+              <div class="h-1/4 w-3/4 grid grid-cols-4 gap-x-1 whitespace-nowrap sm:p-4 justify-center align-center w-full mx-auto">
+                <img src= "{{ machine.mainImage.url }}" id=mainImage class="sm:w-40 w-full h-24 hover:opacity-75 overflow-hidden rounded-xl mx-auto">
               {% for image in images %}
       
-                <img src= "{{ image.url }}" id='image-{{forloop.counter}}' class="  sm:w-40 w-16 sm:h-24 h-12 hover:opacity-75 overflow-hidden rounded-xl mx-auto">
+                <img src= "{{ image.url }}" id='image-{{forloop.counter}}' class="sm:w-40 w-full h-24  hover:opacity-75 overflow-hidden rounded-xl mx-auto mainImage">
 
                 {% endfor %}
               </div>
             </div>
             
 
-            <div class="sm:w-1/2 w-3/4 px-2 sm:px-8 mx-auto flex flex-col justify-evenly">
+            <div class="sm:w-1/2 w-3/4 px-2 sm:px-8 mx-auto flex flex-col justify-evenly mt-4">
               <div>
               <div class="max-w-5xl sm:mx-auto  sm:mx-2 border-b-2 border-black w-full">
                 <h1 class="font-extrabold sm:text-6xl text-2xl  text-black tracking-tight text-center mb-2 sm:mb-6">{{machine.name.upper }}</h1>
               </div>
               <br>
               <div class="">
-                <p class="mt-1 text-xs sm:text-lg font-bold text-black">Description:</p>
-                <p class="mt-1 text-xs sm:text-lg font-bold text-black">{{machine.description}}</p>
-                <p class="mt-1 text-xs sm:text-lg font-bold text-black flex justify-between whitespace-nowrap">Precio <span>  $ {{machine.price}} </span></p>
-                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Año <span>{{machine.year}}</span> </p>
-                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Categoria <span>{{machine.category}}</span> </p>
-                <p class="mt-1 text-xs sm:text-lg font-bold flex justify-between text-black whitespace-nowrap">Fecha de publicacion: <span>{{machine.created_at}}</span> </p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold text-black">Description:</p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold text-black">{{machine.description}}</p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold text-black flex justify-between whitespace-nowrap">Precio <span>  $ {{machine.price}} </span></p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold flex justify-between text-black whitespace-nowrap">Año <span>{{machine.year}}</span> </p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold flex justify-between text-black whitespace-nowrap">Categoria <span>{{machine.category}}</span> </p>
+                <p class="mt-1 text-xs sm:text-2xl font-bold flex justify-between text-black whitespace-nowrap">Fecha de publicacion: <span>{{machine.created_at}}</span> </p>
                 
               </div>
             </div>
